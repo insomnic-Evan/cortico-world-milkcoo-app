@@ -1,0 +1,76 @@
+{
+  "name": "cortico-world-milkcoo-app",
+  "version": "0.5.0-beta.8",
+  "type": "module",
+  "description": "移动前端coodock：Coo / Cortico 的移动端连接，支持主机直连、公网中转、世界聊天和共享表情包库。",
+  "license": "MIT",
+  "keywords": [
+    "cortico-world",
+    "coodock",
+    "android",
+    "mobile",
+    "tina"
+  ],
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "main": "./src/world.mjs",
+  "exports": "./src/world.mjs",
+  "cortico": {
+    "kind": "world",
+    "api": 6,
+    "displayName": "移动前端coodock",
+    "describe": "describe.json",
+    "tags": [
+      "im",
+      "apps",
+      "experimental",
+      "high-cost",
+      "sensitive-data"
+    ],
+    "locales": {
+      "zh": {
+        "displayName": "移动前端coodock",
+        "description": "通过安卓端连接 Coo，使用多媒体私聊、世界聊天、共享表情包库和 Cortico 控制台。"
+      },
+      "en": {
+        "displayName": "移动前端coodock",
+        "description": "Android companion for Cortico and Coopanion with private messages, a shared public room, and a sticker library."
+      }
+    },
+    "icon": "assets/icon.png"
+  },
+  "files": [
+    "src",
+    "client/CooDock-0.6.0-dev.7-debug.apk",
+    "client/CooDock-0.6.0-dev.7-workbench-debug.apk",
+    "client/ModelPanel.html",
+    "client/DevicePanel.html",
+    "client/Android-Guide.html",
+    "client/iOS-Guide.html",
+    "client/iOS-AltStore-Guide.html",
+    "client/MilkCoo-unsigned-0.2.2.ipa",
+    "client/MilkCoo-iOS-0.2.2-source.zip",
+    "client/README.md",
+    "examples",
+    "ENV_PROMPT.md",
+    "README.md",
+    "LICENSE",
+    "THIRD_PARTY_NOTICES.md",
+    "describe.json",
+    "CHANGELOG.md",
+    "assets/icon.png"
+  ],
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "check": "node --check src/world.mjs && node --check src/store.mjs"
+  },
+  "author": {
+    "name": "rtmhjx",
+    "url": "https://github.com/rtmhjx"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rtmhjx/cortico-world-milkcoo-app.git"
+  }
+}
