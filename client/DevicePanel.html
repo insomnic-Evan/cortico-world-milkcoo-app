@@ -1,0 +1,17 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>移动前端coodock · 手机连接</title>
+<style>
+:root{color-scheme:dark}*{box-sizing:border-box}body{background:#101917;color:#eef6ee;font:16px/1.6 system-ui,"Microsoft YaHei",sans-serif;margin:0}main{max-width:760px;margin:auto;padding:40px 20px}header{padding:10px 0 24px}h1{font-size:32px;letter-spacing:-.03em;margin:8px 0}h2{font-size:22px;margin:0 0 6px}p{color:#b4c6bb;margin:0 0 14px}.tag{color:#65e0b1;font-size:12px;font-weight:700;letter-spacing:.08em}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}.card{background:#1a2823;border:1px solid #34493e;border-radius:19px;padding:22px}.label{font-size:13px;color:#e5d290;margin-bottom:14px}.action{display:block;text-decoration:none;margin-top:9px;padding:11px 14px;border-radius:11px;background:#66dcaf;color:#071d15;font-weight:700}.quiet{background:#293c33;color:#e1f4e7}.note{padding:17px 19px;margin-top:18px;background:#29291d;border-radius:15px;color:#e2d9ac;font-size:14px}.foot{font-size:13px;margin-top:20px}
+.relay{border-color:#4e7665;margin-bottom:14px}.relay-links{display:flex;gap:9px;flex-wrap:wrap}.action:focus-visible{outline:2px solid #e5d290;outline-offset:3px}
+</style></head><body><main>
+<header><div class="tag">手机连接</div><h1>移动前端coodock</h1><p>先在这台主机启用 World，再选择手机的连接方式。连接信息与已有对话会保留在各自设备上。</p></header>
+<section class="card relay" aria-labelledby="relay-title">
+  <div class="label">ANDROID · 公网中转</div><h2 id="relay-title">在外面连接自己的 Coo</h2>
+  <p>先在公网主页领取中转密钥，再回这台电脑填写密钥，生成并下载供自己的手机使用的专属 APK。</p>
+  <div class="relay-links"><a class="action quiet" href="https://htina.top/" target="_blank" rel="noopener noreferrer">前往公网主页</a><a class="action quiet" href="https://8.137.59.209/welcome" target="_blank" rel="noopener noreferrer">公网备用入口</a><a class="action" href="/_coo/relay-apk">填写公网密钥并生成专属 APK</a></div>
+</section>
+<div class="cards"><section class="card"><div class="label">ANDROID · 主机直连</div><h2>安卓手机</h2><p>下载此 Coo 的专属安装包，私下发送到手机。首次安装通常可自动连接。</p><a class="action" href="/_coo/install.apk">下载专属安卓安装包</a><p>主机版不含手机内核。需要在手机运行 World、导入记忆副本或备用 API 续聊时，可选完整工作台包；同包名、同签名覆盖更新，连接和数据保留。</p><a class="action quiet" href="/_coo/install-workbench.apk">下载完整工作台 APK（可选）</a><a class="action quiet" href="/_coo/android-guide">查看安卓图文指南</a></section>
+<section class="card"><div class="label">IPHONE / IPAD · 测试版</div><h2>苹果手机</h2><p>已准备未签名的 iOS 测试包；使用 Windows 的 AltStore Classic 可尝试自行签名安装，当前尚未完成真机验证。</p><a class="action" href="/_coo/ios-altstore-guide">苹果测试版安装说明</a><a class="action quiet" href="/_coo/ios-unsigned.ipa">下载未签名 IPA</a><a class="action quiet" href="/_coo/ios-pair">打开苹果设备连接码</a><a class="action quiet" href="/_coo/ios-guide">查看苹果图文指南</a><a class="action quiet" href="/_coo/ios-source.zip">下载苹果客户端源码</a></section></div>
+<section class="card"><div class="label">可选 · 跨网连接</div><h2>离开家也想连接？</h2><p>了解 EasyTier 跨网连接，并按需下载经过校验的官方组件；默认不运行。</p><a class="action quiet" href="/_coo/easytier">查看跨网连接与组件</a></section>
+<div class="note">专属安卓安装包内含连接信息，不要公开分享。苹果连接码一次有效，过期后请重新生成。远程主机需先通过可信连接访问本机入口。</div>
+<p class="foot">一个 World 服务两个客户端；各手机保留自己的本地记录。记录、事件与跨设备对话的可见范围以实际同步结果为准。</p>
+</main></body></html>
