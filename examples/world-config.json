@@ -1,0 +1,10 @@
+{
+  "worlds": {
+    "milkcoo_app": {
+      "enabled": true,
+      "host": "127.0.0.1",
+      "port": 7801,
+      "tokenSecret": "MILKCOO_APP_TOKEN"
+    }
+  }
+}
