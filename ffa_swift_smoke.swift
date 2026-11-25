@@ -105,6 +105,7 @@ private struct FfaBotChannelView: View {
     }
     private enum Endpoint {
         static let origin = URL(string: "https://starpost.com.cn")!
+        static let officialHosts = ["starpost.com.cn", "8.148.13.225"]
         static let service = "net.tina.coodock.starpost"
         static let key = "shared-bot-channel"
     }
@@ -212,7 +213,8 @@ private struct FfaBotChannelView: View {
             let challenge = base64url(Data(SHA256.hash(data:Data(verifier.utf8))))
             let out = try await post("/mobile/hub/start",data:["challenge":challenge,"project":"coodock"])
             guard let id = out["flowId"] as? String, let href = out["authorizationUrl"] as? String,
-                  let url = URL(string:href), url.scheme == "https", url.host == Endpoint.origin.host,
+                  let url = URL(string:href), url.scheme == "https", let host = url.host,
+                  Endpoint.officialHosts.contains(host),
                   url.user == nil, url.password == nil, url.port == nil || url.port == 443,
                   url.path == "/web/hub/start", let expiry = out["expiresAt"] as? Double, expiry > now
             else { throw Failure(text:"登录地址无效。") }
