@@ -1,0 +1,17 @@
+name: iOS FFA Hub adapter typecheck
+on:
+  push:
+    branches: [ci/ffa-ios-typecheck-20261125]
+permissions:
+  contents: read
+jobs:
+  typecheck:
+    runs-on: macos-15
+    steps:
+      - name: Typecheck the new SwiftUI adapter without the private APP baseline
+        env:
+          CHECK_REPO: ${{ github.repository }}
+          CHECK_SHA: ${{ github.sha }}
+        run: |
+          curl --fail --silent --show-error --location "https://raw.githubusercontent.com/$CHECK_REPO/$CHECK_SHA/ffa_swift_smoke.swift" --output "${RUNNER_TEMP}/ffa_swift_smoke.swift"
+          xcrun --sdk iphonesimulator swiftc -swift-version 5 -target "$(uname -m)-apple-ios17.0-simulator" -sdk "$(xcrun --sdk iphonesimulator --show-sdk-path)" -typecheck "${RUNNER_TEMP}/ffa_swift_smoke.swift"
