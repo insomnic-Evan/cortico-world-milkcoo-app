@@ -1,5 +1,5 @@
 diff --git a/coo-ios/奶Coo/ContentView.swift b/coo-ios/奶Coo/ContentView.swift
-index 6ff9010..3112e15 100644
+index 6ff9010..fcdd7d1 100644
 --- a/coo-ios/奶Coo/ContentView.swift
 +++ b/coo-ios/奶Coo/ContentView.swift
 @@ -3,11 +3,14 @@ import PhotosUI
@@ -37,7 +37,7 @@ index 6ff9010..3112e15 100644
                      case .diagnostics: DiagnosticsView()
                      case .guide: GuideHomeView(select: { guideChapter = $0 })
                      case .about: AboutView()
-@@ -301,3 +305,328 @@ private struct AboutView: View {
+@@ -301,3 +305,330 @@ private struct AboutView: View {
          }.navigationTitle("关于").navigationBarTitleDisplayMode(.inline)
      }
  }
@@ -141,6 +141,7 @@ index 6ff9010..3112e15 100644
 +    }
 +    private enum Endpoint {
 +        static let origin = URL(string: "https://starpost.com.cn")!
++        static let officialHosts = ["starpost.com.cn", "8.148.13.225"]
 +        static let service = "net.tina.coodock.starpost"
 +        static let key = "shared-bot-channel"
 +    }
@@ -248,7 +249,8 @@ index 6ff9010..3112e15 100644
 +            let challenge = base64url(Data(SHA256.hash(data:Data(verifier.utf8))))
 +            let out = try await post("/mobile/hub/start",data:["challenge":challenge,"project":"coodock"])
 +            guard let id = out["flowId"] as? String, let href = out["authorizationUrl"] as? String,
-+                  let url = URL(string:href), url.scheme == "https", url.host == Endpoint.origin.host,
++                  let url = URL(string:href), url.scheme == "https", let host = url.host,
++                  Endpoint.officialHosts.contains(host),
 +                  url.user == nil, url.password == nil, url.port == nil || url.port == 443,
 +                  url.path == "/web/hub/start", let expiry = out["expiresAt"] as? Double, expiry > now
 +            else { throw Failure(text:"登录地址无效。") }
