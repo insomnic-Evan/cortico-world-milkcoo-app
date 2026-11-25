@@ -6,7 +6,7 @@ permissions:
   contents: read
 jobs:
   typecheck:
-    runs-on: macos-15
+    runs-on: macos-15-intel
     steps:
       - name: Typecheck the new SwiftUI adapter without the private APP baseline
         env:
